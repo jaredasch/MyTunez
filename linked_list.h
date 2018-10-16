@@ -1,5 +1,16 @@
+//Colin Hosking Jared Asch
+//Project 0: MyTunez
+//Systems pd05
+//2018-10-19
+
 #ifndef LINKED_LIST_H
 #define LINKED_LIST_H
+
+struct song_node {
+ 	char name[100];
+ 	char artist[100];
+ 	struct song_node *next;
+};
 
 struct song_node * insert_front(struct song_node *, char[], char[]);
 

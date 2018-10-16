@@ -1,3 +1,8 @@
+//Colin Hosking Jared Asch
+//Project 0: MyTunez
+//Systems pd05
+//2018-10-19
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -6,6 +11,8 @@
 
 int main(){
     srand(time(NULL));
+    
+    printf("--------------- Testing Linked List Functions ---------------\n");
 
     printf("== Testing print_list() for null Linked List ==\n");
     struct song_node *list = 0;

@@ -1,13 +1,12 @@
+//Colin Hosking Jared Asch
+//Project 0: MyTunez
+//Systems pd05
+//2018-10-19
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include "linked_list.h"
-
-struct song_node {
- 	char name[100];
- 	char artist[100];
- 	struct song_node *next;
-};
 
 struct song_node * insert_front(struct song_node *next, char name[], char artist[]){
 	struct song_node *new_node = malloc(sizeof(struct song_node));
