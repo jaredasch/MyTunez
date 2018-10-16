@@ -19,7 +19,7 @@ void print_tab(int index){
 
 struct library * insert_song(struct library *lib, char name[], char artist[]){
     int index = get_table_index(*artist);
-    lib->table[index] = insert(lib->table[index], name, artist);
+    lib->table[index] = insert_ordered(lib->table[index], name, artist);
     return lib;
 }
 

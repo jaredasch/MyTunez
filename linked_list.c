@@ -27,22 +27,22 @@ int compare_songs(char * name1, char * artist1, char * name2, char * artist2){ /
     }
 }
 
-struct song_node * insert(struct song_node *head, char name[], char artist[]){
+struct song_node * insert_ordered(struct song_node *head, char name[], char artist[]){
     if(!head || compare_songs(name, artist, head->name, head->artist) > 0){
-        printf("Inserted %s in front\n", name);
+        // printf("Inserted %s in front\n", name);
         return insert_front(head, name, artist);
     } else {
         struct song_node *original_head = head;
         while(head->next != 0 && compare_songs(name, artist, head->next->name, head->next->artist) < 0){
             head = head->next;
         }
-        printf("%s after %s\n", name, head->name);
+        // printf("%s after %s\n", name, head->name);
         head->next = insert_front(head->next, name, artist);
         return original_head;
     }
 }
 
-struct song_node * remove_song(struct song_node *head, struct song_node *to_remove){
+struct song_node * remove_node(struct song_node *head, char name[], char artist[]){
 	struct song_node *cur = head;
 	while(cur->next != to_remove){
 		cur = cur->next;
@@ -51,7 +51,7 @@ struct song_node * remove_song(struct song_node *head, struct song_node *to_remo
 	return head;
 }
 
-struct song_node * find_song(struct song_node *head, char *name, char *artist){
+struct song_node * find_node(struct song_node *head, char *name, char *artist){
 	while(strcmp(name, head->name) != 0 || strcmp(artist, head->artist) != 0){
 		head = head->next;
 		if(!head)	return head;
@@ -59,7 +59,7 @@ struct song_node * find_song(struct song_node *head, char *name, char *artist){
 	return head;
 }
 
-struct song_node * find_song_by_artist(struct song_node *head, char *artist){
+struct song_node * find_node_artist(struct song_node *head, char *artist){
 	while(strcmp(artist, head->artist) != 0){
 		head = head->next;
 		if(!head)	return head;
@@ -67,8 +67,9 @@ struct song_node * find_song_by_artist(struct song_node *head, char *artist){
 	return head;
 }
 
-struct song_node * random_song(struct song_node *head){
+struct song_node * random_node(struct song_node *head){
 	int index = rand() % len(head);
+	// printf("%d\n", index);
 	while(index--){
 		head = head->next;
 	}
@@ -95,7 +96,16 @@ int len(struct song_node *head){
 
 void print_list(struct song_node *n){
 	while(n){
-		printf("\t%s : %s\n", n->artist, n->name);
+		printf("%s : %s\n", n->artist, n->name);
 		n = n->next;
+	}
+}
+
+void print_node(struct song_node *n){
+	if(n){
+		printf("%s : %s\n", n->artist, n->name);
+	}
+	else {
+		printf("Null\n");
 	}
 }

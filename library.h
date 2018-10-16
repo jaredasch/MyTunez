@@ -1,3 +1,8 @@
+#ifndef LIBRARY_H
+#define LIBRARY_H
+
+#include "linked_list.h"
+
 struct library {
     struct song_node * table[27];
 };
@@ -9,3 +14,5 @@ void print_library(struct library *);
 void print_letter(struct library *, char);
 
 int get_table_index(char);
+
+#endif
