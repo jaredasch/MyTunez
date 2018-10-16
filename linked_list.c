@@ -22,7 +22,7 @@ int compare_songs(char * name1, char * artist1, char * name2, char * artist2){ /
         return 1;
     } else if(strcmp(artist1, artist2) > 0){
         return -1;
-    } else { 
+    } else {
         return -1 * strcmp(name1, name2);
     }
 }
@@ -95,8 +95,7 @@ int len(struct song_node *head){
 
 void print_list(struct song_node *n){
 	while(n){
-		printf("%s - %s\n", n->artist, n->name);
+		printf("\t%s : %s\n", n->artist, n->name);
 		n = n->next;
 	}
-    printf("\n\n");
 }

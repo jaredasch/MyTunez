@@ -2,25 +2,21 @@
 #include <stdlib.h>
 #include <time.h>
 #include "linked_list.h"
+#include "library.h"
 
 int main(){
     srand(time(NULL));
 
-    struct song_node * song_list = 0;
-    song_list = insert(song_list, "Don't Stop Me Now", "Queen");
-    print_list(song_list);
+    struct library *lib = calloc(1, sizeof(struct library));
+    insert_song(lib, "Don't Stop Me Now", "Queen");
+    insert_song(lib, "Bohemian Rhapsody", "Queen");
+    insert_song(lib, "Replay", "Iyaz");
+    insert_song(lib, "We Will Rock You", "Queen");
+    insert_song(lib, "Despacito", "Luis Fonsi");
+    insert_song(lib, "Counting Stars", "1Republic");
 
-    song_list = insert(song_list, "Bohemian Rhapsody", "Queen");
-    print_list(song_list);
-
-    song_list = insert(song_list, "Replay", "Iyaz");
-    print_list(song_list);
-
-    song_list = insert(song_list, "We Will Rock You", "Queen");
-    print_list(song_list);
-
-    song_list = insert(song_list, "Despacito", "Luis Fonsi");
-    print_list(song_list);
+    print_library(lib);
+    print_letter(lib, 'K');
 
     return 0;
 }
