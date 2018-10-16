@@ -49,9 +49,14 @@ int main(){
     printf("\n== Testing Linked List remove_node() ==\n");
     printf("Removing Replay : Iyaz\n");
     list = remove_node(list, "Replay", "Iyaz");
-    // list = remove_node(list, "Country Roads", "John Denver");
+    printf("Removing Country Roads : John Denver (Not in list)\n");
+    list = remove_node(list, "Country Roads", "John Denver");
     print_list(list);
 
+    printf("\n== Testing Linked List free_list() ==\n");
+    list = free_list(list);
+    printf("Printing the freed list\n");
+    print_list(list);
 
     return 0;
 }

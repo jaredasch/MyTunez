@@ -43,12 +43,25 @@ struct song_node * insert_ordered(struct song_node *head, char name[], char arti
 }
 
 struct song_node * remove_node(struct song_node *head, char name[], char artist[]){
-	struct song_node *cur = head;
-	while(cur->next != to_remove){
+	if(!head)	return 0;
+	struct song_node *to_remove = find_node(head, name, artist);
+
+	if(head == to_remove){
+		struct song_node * tmp = head->next;
+		free(to_remove);
+		return tmp;
+	}
+
+	struct song_node * cur = head;
+	while(1){
+		if(!cur->next)	return head;
+		if(cur->next == to_remove){
+			struct song_node * tmp = cur->next;
+			free(to_remove);
+			return tmp;
+		}
 		cur = cur->next;
 	}
-	cur->next = to_remove->next;
-	return head;
 }
 
 struct song_node * find_node(struct song_node *head, char *name, char *artist){
