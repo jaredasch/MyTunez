@@ -64,7 +64,8 @@ struct song_node * remove_node(struct song_node *head, char name[], char artist[
 }
 
 struct song_node * find_node(struct song_node *head, char *name, char *artist){
-	while(strcmp(name, head->name) != 0 || strcmp(artist, head->artist) != 0){
+    if(!head)   return 0;
+    while(strcmp(name, head->name) != 0 || strcmp(artist, head->artist) != 0){
 		head = head->next;
 		if(!head)	return head;
 	}
@@ -72,7 +73,8 @@ struct song_node * find_node(struct song_node *head, char *name, char *artist){
 }
 
 struct song_node * find_node_artist(struct song_node *head, char *artist){
-	while(strcmp(artist, head->artist) != 0){
+    if(!head)   return 0;
+    while(strcmp(artist, head->artist) != 0){
 		head = head->next;
 		if(!head)	return head;
 	}
