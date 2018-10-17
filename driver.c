@@ -55,7 +55,7 @@ int main(){
 
     printf("\n== Testing Linked List remove_node() ==\n");
     printf("Removing Replay by Iyaz\n");
-    list = remove_node(list, "Replay", "Iyaz");
+    list = remove_node(list, "Yea!", "Usher");
     printf("Removing Country Roads by John Denver (Not in list)\n");
     list = remove_node(list, "Country Roads", "John Denver");
     print_list(list);

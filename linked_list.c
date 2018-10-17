@@ -42,26 +42,26 @@ struct song_node * insert_ordered(struct song_node *head, char name[], char arti
 }
 
 struct song_node * remove_node(struct song_node *head, char name[], char artist[]){
-	if(!head)	return 0;
-	struct song_node *to_remove = find_node(head, name, artist);
-
-	if(head == to_remove){
-		struct song_node * tmp = head->next;
-		free(to_remove);
-		return tmp;
-	}
-
-	struct song_node * cur = head;
-	while(1){
-		if(!cur->next)	return head;
-		if(cur->next == to_remove){
-			struct song_node * tmp = cur->next;
-			free(to_remove);
-			return tmp;
-		}
-		cur = cur->next;
-	}
+  return remove_node_help(head, name, artist, head);
 }
+
+struct song_node * remove_node_help(struct song_node *cur, char name[], char artist[], struct song_node *head){
+  if (!cur){
+    return head; //NULL list returns NULL 
+  }
+  if(!cur->next){
+    return head; //next one is NULL
+  }
+  if (!strcmp(name, cur->next->name) && !strcmp(name, cur->next->name)){
+    struct song_node * tmp = cur->next;
+    cur->next = cur->next->next;
+    free(tmp);
+    return head;
+  }
+  return remove_node_help(cur->next,name,artist,head);
+}
+
+
 
 struct song_node * find_node(struct song_node *head, char *name, char *artist){
     if(!head)   return 0;
