@@ -24,16 +24,16 @@ int main(){
     print_list(list);
 
     printf("\n== Testing Linked List insert_ordered()\n");
-    list = insert_ordered(list, "Billie Jean", "Michael Jackson");
+    list = insert_ordered(list, "Billie Jean", "Michael Jackson"); //inserts in middle
     list = insert_ordered(list, "Mr. Brightside", "The Killers");
     list = insert_ordered(list, "Smells Like Teen Spirit", "Nirvana");
-    list = insert_ordered(list, "Yea!", "Usher");
+    list = insert_ordered(list, "Yea!", "Usher"); //inserts last
     print_list(list);
 
     printf("\n== Testing Linked List find_node() ==\n");
     printf("Searching for Billie Jean by Michael Jackson\n");
     print_node(find_node(list, "Billie Jean", "Michael Jackson"));
-    printf("Searching for Replay by Iyaz\n");
+    printf("Searching for Replay by Iyaz\n"); 
     print_node(find_node(list, "Replay", "Iyaz"));
     printf("Searching for Country Roads by John Denver (Not in list)\n");
     print_node(find_node(list, "Country Roads", "John Denver"));
@@ -54,7 +54,11 @@ int main(){
     print_node(random_node(list));
 
     printf("\n== Testing Linked List remove_node() ==\n");
-    printf("Removing Replay by Iyaz\n");
+    printf("Removing Despacito by Luis Fonsi\n");
+    list = remove_node(list, "Despacito", "Luis Fonsi");
+    printf("Removing Billie Jean by Michael Jackson\n");
+    list = remove_node(list, "Billie Jean", "Michael Jackson");
+    printf("Removing Yea! by Usher\n");
     list = remove_node(list, "Yea!", "Usher");
     printf("Removing Country Roads by John Denver (Not in list)\n");
     list = remove_node(list, "Country Roads", "John Denver");
@@ -109,6 +113,7 @@ int main(){
 
     printf("\n== Testing Library shuffle() ==\n");
     shuffle(lib, 4);
+    shuffle(lib, 3);
 
     printf("\n== Testing Library delete_song() ==\n");
     printf("Deleting Thriller by Michael Jackson\n");
@@ -117,8 +122,9 @@ int main(){
     delete_song(lib, "Country Roads", "John Denver");
     print_library(lib);
 
-    printf("\n== Testing Library free_library() ==");
+    printf("\n== Testing Library free_library() ==\n");
     lib = free_library(lib);
+    printf("Printing freed library:\n");
     print_library(lib);
 
     return 0;
