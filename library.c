@@ -5,6 +5,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <ctype.h>
 #include <string.h>
 #include "linked_list.h"
 #include "library.h"
@@ -61,8 +62,20 @@ void delete_song(struct library *lib, char name[], char artist[]){
 }
 
 struct library * add_song(struct library *lib, char name[], char artist[]){
+    char song[sizeof(strlen(name))];
+    strcpy(song,name);
+    for(int i = 0; song[i]; i++){
+        song[i] = tolower(song[i]);
+    }
+    
+    char art[sizeof(strlen(artist))];
+    strcpy(art,artist);
+    for(int i = 0; art[i]; i++){
+        art[i] = tolower(art[i]);
+    }
+    
     int index = get_table_index(*artist);
-    lib->table[index] = insert_ordered(lib->table[index], name, artist);
+    lib->table[index] = insert_ordered(lib->table[index], song, art);
     lib->size++;
     return lib;
 }
