@@ -18,7 +18,7 @@ struct song_node * insert_ordered(struct song_node *, char[], char[]);
 
 struct song_node * remove_node(struct song_node *, char[], char[]);
 
-struct song_node * remove_node_help(struct song_node *cur, char name[], char artist[], struct song_node *head);
+struct song_node * remove_node_help(struct song_node *, char[], char[], struct song_node *);
 
 struct song_node * find_node(struct song_node *, char *, char *);
 
