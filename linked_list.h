@@ -30,6 +30,8 @@ struct song_node * free_list(struct song_node *);
 
 int compare_songs(char *, char *, char *, char *);
 
+int strcmp_lower(char *, char *);
+
 int len(struct song_node *);
 
 void print_list(struct song_node *);

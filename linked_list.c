@@ -6,7 +6,15 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 #include "linked_list.h"
+
+int strcmp_lower(char *s1, char *s2){
+	while(*s1 && *s2 && tolower(*s1) == tolower(*s2)){
+		s1++;	s2++;
+	}
+	return tolower(*s1) - tolower(*s2);
+}
 
 struct song_node * insert_front(struct song_node *next, char name[], char artist[]){
 	struct song_node *new_node = malloc(sizeof(struct song_node));
@@ -47,7 +55,7 @@ struct song_node * remove_node(struct song_node *head, char name[], char artist[
 
 struct song_node * remove_node_help(struct song_node *cur, char name[], char artist[], struct song_node *head){
   if (!cur){
-    return head; //NULL list returns NULL 
+    return head; //NULL list returns NULL
   }
   if(!cur->next){
     return head; //next one is NULL
