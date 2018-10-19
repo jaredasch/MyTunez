@@ -25,12 +25,12 @@ struct song_node * insert_front(struct song_node *next, char name[], char artist
 }
 
 int compare_songs(char * name1, char * artist1, char * name2, char * artist2){ // Returns 1 if song1 bigger than song2, -1 if other way, 0 if equal
-    if(strcmp(artist1, artist2) < 0){
+    if(strcmp_lower(artist1, artist2) < 0){
         return 1;
-    } else if(strcmp(artist1, artist2) > 0){
+    } else if(strcmp_lower(artist1, artist2) > 0){
         return -1;
     } else {
-        return -1 * strcmp(name1, name2);
+        return -1 * strcmp_lower(name1, name2);
     }
 }
 
@@ -60,7 +60,7 @@ struct song_node * remove_node_help(struct song_node *cur, char name[], char art
   if(!cur->next){
     return head; //next one is NULL
   }
-  if (!strcmp(name, cur->next->name) && !strcmp(name, cur->next->name)){
+  if (!strcmp_lower(name, cur->next->name) && !strcmp_lower(name, cur->next->name)){
     struct song_node * tmp = cur->next;
     cur->next = cur->next->next;
     free(tmp);
@@ -73,7 +73,7 @@ struct song_node * remove_node_help(struct song_node *cur, char name[], char art
 
 struct song_node * find_node(struct song_node *head, char *name, char *artist){
     if(!head)   return 0;
-    while(strcmp(name, head->name) != 0 || strcmp(artist, head->artist) != 0){
+    while(strcmp_lower(name, head->name) != 0 || strcmp_lower(artist, head->artist) != 0){
 		head = head->next;
 		if(!head)	return head;
 	}
@@ -82,7 +82,7 @@ struct song_node * find_node(struct song_node *head, char *name, char *artist){
 
 struct song_node * find_node_artist(struct song_node *head, char *artist){
     if(!head)   return 0;
-    while(strcmp(artist, head->artist) != 0){
+    while(strcmp_lower(artist, head->artist) != 0){
 		head = head->next;
 		if(!head)	return head;
 	}
