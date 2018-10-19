@@ -82,6 +82,11 @@ int main(){
     add_song(lib, "Purple Haze", "Jimi Hendrix");
     add_song(lib, "I Feel Good", "James Brown");
     print_library(lib);
+        
+    printf("\n== Testing Library add_song() - lower cased - and print_library() ==\n");
+    add_song(lib, "Beat It", "michael jackson");
+    add_song(lib, "Careless Whisper", "george michaels");
+    print_library(lib);
 
     printf("\n== Testing Library search_song() ==\n");
     printf("Searching for Billie Jean by Michael Jackson\n");
@@ -126,6 +131,6 @@ int main(){
     lib = free_library(lib);
     printf("Printing freed library:\n");
     print_library(lib);
-
+    
     return 0;
 }

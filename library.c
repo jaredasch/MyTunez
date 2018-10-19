@@ -12,6 +12,8 @@
 int get_table_index(char chr){
     if(65 <= chr && chr <= 90)
         return (int ) chr - 'A';
+    if(97 <= chr && chr <= 122)
+        return (int) chr - 'a';
     return 26;
 }
 
